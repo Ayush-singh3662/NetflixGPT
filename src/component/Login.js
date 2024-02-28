@@ -10,6 +10,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BACKGROUND, PHOTO_URL } from "../utils/contants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -44,8 +45,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://scontent.fccu23-1.fna.fbcdn.net/v/t39.30808-1/345844970_1645385249218727_6510530699562498707_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5740b7&_nc_ohc=ZexzAnc0LlsAX9mMXe3&_nc_ht=scontent.fccu23-1.fna&oh=00_AfBk0boBV-D2Mvfshp0TXu9iZEorK_cjto_Qy58fv8nsRw&oe=65DCB504",
+            photoURL: PHOTO_URL,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -57,7 +57,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setError(error.message);
@@ -76,7 +75,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -92,10 +90,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="bg-cover bg-center absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/c0b69670-89a3-48ca-877f-45ba7a60c16f/2642e08e-4202-490e-8e93-aff04881ee8a/IN-en-20240212-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="background"
-        />
+        <img src={BACKGROUND} alt="background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
