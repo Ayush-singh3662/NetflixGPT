@@ -18,7 +18,6 @@ const Login = () => {
   const password = useRef(null);
   const [error, setError] = useState("");
   const name = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleClickButton = () => {

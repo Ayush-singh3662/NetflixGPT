@@ -3,7 +3,7 @@ import { useState } from "react";
 const VideoTitle = ({title, overview}) => {
   const [mouse, setMouse] = useState(false);
   return (
-    <div className="pt-[20%] px-10 absolute text-white bg-gradient-to-r from-black w-screen aspect-video">
+    <div className="pt-[25%] px-10 absolute text-white bg-gradient-to-r from-black w-screen aspect-video">
         <h1 className="text-6xl font-bold">{title}</h1>
         {mouse && <p onMouseLeave={() => setMouse(false)} className="text-lg w-1/4 py-6">{overview}</p>}
         <div>
