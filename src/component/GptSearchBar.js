@@ -21,8 +21,6 @@ const GptSearchBar = () => {
       messages: [{ role: 'user', content: gptQuery }],
       model: 'gpt-3.5-turbo',
     });
-    console.log(searchText.current.value);
-    console.log(result.choices);
     const gptMovies = result?.choices[0]?.message?.content.split(", ");
     const data = gptMovies.map(movie => searchMovies(movie));
     const tmdbResults = await Promise.all(data);
