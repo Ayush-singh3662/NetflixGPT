@@ -89,43 +89,43 @@ const Login = () => {
     <div>
       <Header />
       <div className="bg-cover bg-center absolute">
-        <img src={BACKGROUND} alt="background" />
+        <img className="h-screen object-cover md:h-auto" src={BACKGROUND} alt="background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute w-4/12 p-12 bg-black my-32 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="absolute w-96 md:w-4/12 p-8 md:p-12 bg-black my-20 md:my-32 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold text-2xl md:text-3xl py-2 md:py-4">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignIn && (
           <input
             ref={name}
-            className="bg-gray-700 p-3 my-4 w-full rounded-sm"
+            className="bg-gray-700 p-3 my-2 md:my-4 w-full rounded-sm"
             type="text"
             placeholder="Full Name"
           />
         )}
         <input
           ref={email}
-          className="bg-gray-700 p-3 my-4 w-full rounded-sm"
+          className="bg-gray-700 p-3 my-2 md:my-4 w-full rounded-sm"
           type="text"
           placeholder="Email or Phone number"
         />
         <input
           ref={password}
-          className="bg-gray-700 p-3 my-4 w-full rounded-sm"
+          className="bg-gray-700 p-3 my-2 md:my-4 w-full rounded-sm"
           type="password"
           placeholder="Password"
         />
         <p className="text-red-500 font-bold text-lg py-2">{error}</p>
         <button
           onClick={handleClickButton}
-          className="p-4 my-6 bg-red-700 w-full rounded-md"
+          className="p-4 my-3 md:my-6 bg-red-700 w-full rounded-md"
         >
           {isSignIn ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-4 cursor-pointer" onClick={toggleSignForm}>
+        <p className="py-2 md:py-4 cursor-pointer" onClick={toggleSignForm}>
           {isSignIn
             ? "New to Netflix? Sign up now."
             : "Already registered? Sign In now."}

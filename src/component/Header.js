@@ -53,10 +53,10 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute py-2 px-8 bg-gradient-to-b from-black z-10 w-screen flex justify-between">
-      <img className="w-44" src={LOGO} alt="logo" />
+    <div className="absolute py-2 px-8 bg-gradient-to-b from-black z-10 w-screen flex justify-between flex-col md:flex-row">
+      <img className="w-44 m-auto md:m-0" src={LOGO} alt="logo" />
       {user && (
-        <div className="flex p-2">
+        <div className="flex md:p-2">
           {gpt && (
             <select
               className="bg-black text-white p-2 m-2"
